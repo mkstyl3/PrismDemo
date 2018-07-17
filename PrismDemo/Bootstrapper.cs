@@ -26,8 +26,21 @@ namespace PrismDemo
         {
             base.ConfigureContainer();
 
-            Container.RegisterType(typeof(object), typeof(ViewA), "ViewA");
-            Container.RegisterType(typeof(object), typeof(ViewB), "ViewB");
+            //container.registertype(typeof(object), typeof(viewa), "viewa");
+            //container.registertype(typeof(object), typeof(viewb), "viewb");
+
+            Container.RegisterTypeForNavigation<ViewA>("ViewA");
+            Container.RegisterTypeForNavigation<ViewB>("ViewB");
+
+            // Maybe we need to write the class, but seems like we are just fine atm
+            //
+            //public static class UnityExtensions
+            //{
+            //    public static void RegisterTypeForNavigation<T>(this IUnityContainer container, string name)
+            //    {
+            //        container.RegisterType(typeof(object), typeof(T), name);
+            //    }
+            //}
         }
     }
 }

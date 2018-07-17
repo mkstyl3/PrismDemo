@@ -1,9 +1,6 @@
-﻿using Prism.Mvvm;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Prism.Events;
+using Prism.Mvvm;
+using PrismDemo.Events;
 
 namespace PrismDemo.ViewModels
 {
@@ -14,6 +11,16 @@ namespace PrismDemo.ViewModels
         {
             get { return _message; }
             set { SetProperty(ref _message, value); }
+        }
+        
+        public ViewBViewModel(IEventAggregator eventAggregator)
+        {
+            eventAggregator.GetEvent<UpdateEvent>().Subscribe(Updated);
+        }
+
+        private void Updated(string obj)
+        {
+            Message = obj;
         }
     }
 }
