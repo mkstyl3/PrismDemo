@@ -1,4 +1,5 @@
 ﻿
+using PrismDemo.ViewModels;
 using System.Windows.Controls;
 
 
@@ -12,6 +13,7 @@ namespace PrismDemo.Views
         public ViewA()
         {
             InitializeComponent();
+            //DataContext = new ViewAViewModel();
         }
     }
 }
